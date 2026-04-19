@@ -1,1 +1,34 @@
 # inherits from application.yml
+# development environment
+
+# connection to database and mail server
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cars_world_db # name of the postgres db from docker-compose.yml
+    username: username
+    password: password
+    # driver-class-name: org.postgresql.Driver # not needed since spring boot 2.0.0
+  jpa:
+    hibernate:
+      ddl-auto: update # automatically updates the database schema on application startup
+    show-sql: false # only true for debug purposes
+    properties:
+      hibernate:
+        format_sql: true # formats sql queries (if show-sql is true)
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: giu
+    password: giu
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enable: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000

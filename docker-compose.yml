@@ -18,8 +18,8 @@ services:
     container_name: mail-dev-carsworld
     image: maildev/maildev
     ports:
-      - "1080:1080"
-      - "1025:1025"
+      - "1080:1080" # port for web interface
+      - "1025:1025" # port for SMTP server
 
 networks:
   spring-demo:
