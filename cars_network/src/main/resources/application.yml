@@ -1,1 +1,14 @@
+# main configuration for the common part of the application
+# "run in dev mode and accept files up to 50MB"
+spring:
+  profiles:
+    active: dev # the dev profile is active and spring will load also the configuration from application-dev.yml
+  servlet:
+    multipart:
+      max-file-size: 50MB # max size of files uploaded through HTTP POST
+springdoc:
+  default-produces-media-type: application/json # by default, all endpoints will return responses in JSON format
 
+server:
+  servlet:
+    context-path: /api/v1/ # the base path for all endpoints (every endpoint is reachable through this path)
