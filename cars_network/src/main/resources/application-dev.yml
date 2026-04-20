@@ -1,5 +1,4 @@
-# inherits from application.yml
-# development environment
+# overrides application.yml for development environment
 
 # connection to database and mail server
 spring:
@@ -25,10 +24,10 @@ spring:
     properties:
       mail:
         smtp:
-          trust: "*"
-        auth: true
+          trust: "*" # allow self-signed certificates
+        auth: true # enable authentication
         starttls:
-          enable: true
-        connectiontimeout: 5000
-        timeout: 3000
-        writetimeout: 5000
+          enable: true # enable TLS (Transport Layer Security) encryption
+        connectiontimeout: 5000 # max time to connect to the mail server
+        timeout: 3000 # max time to wait for a response from the mail server
+        writetimeout: 5000 # max time to write to the mail server
